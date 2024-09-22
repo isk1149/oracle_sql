@@ -28,6 +28,7 @@ connect by prior a.dept_id = a.up_dept_id --재귀적인 계층 구조를 정의. prior 기�
                        , 1 as cnt
                     from ted_dept a
                  connect by prior a.dept_id = up_dept_id
+                 --start with 미 사용시 하위가 있는 모든 부서의 계층 조회
                  ) a
            group by a.root_dept_id
          ) b
